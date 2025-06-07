@@ -1,4 +1,7 @@
 #include<stdlib.h>
+#define E 2.71828
+#define PI_ 3.14159
+//yaklasim yapılacak fonksiyon kod icerinde burda belirleniyor.
 double f(double x) {
     return x * x - 4; 
 }
@@ -28,7 +31,7 @@ int checkRoot(double a, double b) {
 }
 void goster(double a, double b, double mutlakHata) {
     printf("a: %lf\n", a);
-    printf("pn")
+    printf("pn:%lf\n",(a + b) / 2);
     printf("b: %lf\n", b);
-    printf("Hata: %lf\n", mutlakHata);
+    printf("Hata: %lf\n_________________________________", mutlakHata);
 }
