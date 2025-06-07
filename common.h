@@ -5,7 +5,7 @@
 #define PI_ 3.14159
 //yaklasim yapılacak fonksiyon kod icerinde burda belirleniyor.
 double f(double x) {
-    return x * x - 4; 
+    return x*x*x + 4*x*x- 10; 
 }
 
 int mutlakHata(double p1,double p0,double hata) {
@@ -34,9 +34,9 @@ int checkRoot(double a, double b) {
 void goster(double a, double b,double fpn,int* step) {
     printf("\n_________________________________\n");
     printf("Adim: %d\n", (*step)++);
-    printf("a: %lf\n", a);
-    printf("pn:%lf\n",(a + b) / 2);
-    printf("b: %lf\n", b);
-    printf("f(pn):%lf",fpn);
+    printf("a: %0.12lf\n", a);
+    printf("pn:%0.12lf\n",(a + b) / 2);
+    printf("b: %0.12lf\n", b);
+    printf("f(pn):%0.12lf",fpn);
     printf("\n_________________________________");
 }

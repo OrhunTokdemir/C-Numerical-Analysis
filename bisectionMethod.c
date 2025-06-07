@@ -6,7 +6,7 @@ int bisectionMethod(double a, double b, double hata);
 int* adim=NULL;
 int main(){
     
-    bisectionMethod(0, 5, 0.01);
+    bisectionMethod(1, 2, 0.0001);
     system("pause");
     return 0;
 }
@@ -23,7 +23,8 @@ int bisectionMethod(double a,double b, double hata){
         scanf("%lf",&b);
         printf("\n*******************\na: %lf\n b: %lf\nhata: %lf\n*******************\n",a,b,hata);
     }
-    int state=mutlakHata(a,b,hata);
+    int state=mutlakHata(a,b,hata)|| bagilHata(a,b,hata);
+    
     if(state){
         printf("Mutlak hata saglandi.\n");
         return 0;
