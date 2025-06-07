@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include<stdlib.h>
+#include <math.h>
 #define E 2.71828
 #define PI_ 3.14159
 //yaklasim yapılacak fonksiyon kod icerinde burda belirleniyor.
@@ -7,7 +9,7 @@ double f(double x) {
 }
 
 int mutlakHata(double p1,double p0,double hata) {
-    if(abs(p1-p0)<hata){
+    if(fabs(p1-p0)<hata){
         return 1;
     } else {
         return 0;
@@ -15,7 +17,7 @@ int mutlakHata(double p1,double p0,double hata) {
 }
 
 int bagilHata(double p1,double p0,double hata) {
-    if(abs(p1-p0)/abs(p0)<hata){
+    if(fabs(p1-p0)/fabs(p0)<hata){
         return 1;
     } else {
         return 0;
@@ -29,9 +31,12 @@ int checkRoot(double a, double b) {
         return 0; // No root in the interval
     }   
 }
-void goster(double a, double b, double mutlakHata) {
+void goster(double a, double b,double fpn,int* step) {
+    printf("\n_________________________________\n");
+    printf("Adim: %d\n", (*step)++);
     printf("a: %lf\n", a);
     printf("pn:%lf\n",(a + b) / 2);
     printf("b: %lf\n", b);
-    printf("Hata: %lf\n_________________________________", mutlakHata);
+    printf("f(pn):%lf",fpn);
+    printf("\n_________________________________");
 }
