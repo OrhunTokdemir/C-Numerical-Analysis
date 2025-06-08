@@ -31,16 +31,16 @@ int bisectionMethod(double a,double b, double hata){
     }
     double pn=(a+b)/2;
     if(checkRoot(a,pn)){
-        goster(a,b,f(pn),adim);
+        goster(a,b,f(pn),adim,pn);
         b=pn;
         bisectionMethod(a,b,hata);
     }
     else if(checkRoot(pn,b)){
-        goster(a,b,f(pn),adim);
+        goster(a,b,f(pn),adim,pn);
         a=pn;
         bisectionMethod(a,b,hata);
     } else {
-        goster(a,b,f(pn),adim);
+        goster(a,b,f(pn),adim,pn);
         printf("Kok bulunamadi.\n");
         return 0;
     }    
