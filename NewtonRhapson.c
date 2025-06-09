@@ -5,6 +5,7 @@
 #include "derivative.h"
 
 double function(double x) {
+    //e^-x -x = 0;
     return pow(E,-x)-x;
 }
 //turevi bulmak icib basit bir orta fark fonksiyonu kullanmaktayım. 3. parti bir kutuphane kullanmak yerine
@@ -15,6 +16,8 @@ double setX1 (double (*f)(double), double x0, double h) {
 
 int NewtonRaphson(double (*f)(double), double x0, double h,double hata,int max_step){
     double x1=setX1(f, x0, h);
+    //h turev yaklaşımında kullanılan fark değeri
+
     int step = 0;
     while(!bagilHata(x1, x0, hata)&& step < max_step) {
         goster_alt(x1, x0, f, step);

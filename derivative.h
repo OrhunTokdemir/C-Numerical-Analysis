@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<math.h>
  //derivatives are cool
+ //h fark metodlarında kullanılan farkı belirler
+//*f türev alınıcak fonksiyonun adresini tutar
 double forwardDifference(double (*f)(double), double x, double h) {
     return (f(x + h) - f(x)) / h;
 }

@@ -30,6 +30,13 @@ int checkRoot(double a, double b) {
         return 0; // No root in the interval
     }   
 }
+void goster_tekli(double xn, double (*f)(double), int step) {
+    printf("\n_________________________________\n");
+    printf("Adim: %d\n", step);
+    printf("x%d: %0.12lf\n", step, xn);
+    printf("f(x%d): %0.12lf\n", step, f(xn));
+    }
+
 void goster_alt(double x1,double x0,double(*f)(double),int step){//alternatif gosterme fonksiyonu
     printf("\n_________________________________\n");
     printf("Adim: %d\n", step);
