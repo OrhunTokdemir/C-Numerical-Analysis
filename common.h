@@ -30,6 +30,16 @@ int checkRoot(double a, double b) {
         return 0; // No root in the interval
     }   
 }
+void goster_alt(double x1,double x0,double(*f)(double),int step){//alternatif gosterme fonksiyonu
+    printf("\n_________________________________\n");
+    printf("Adim: %d\n", step);
+    printf("x%d: %0.12lf\n",step , x0);
+    printf("x%d: %0.12lf\n",step+1, x1);
+    printf("f(x%d): %0.12lf\n", step, f(x0));
+    printf("f(x%d): %0.12lf\n", step+1, f(x1));
+    printf("\n_________________________________\n");
+
+}
 void goster(double a, double b,double fpn,int* step, double pn) {
     printf("\n_________________________________\n");
     printf("Adim: %d\n", (*step)++);

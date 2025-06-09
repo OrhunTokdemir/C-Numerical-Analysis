@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<math.h>
  //derivatives are cool
-
 double forwardDifference(double (*f)(double), double x, double h) {
     return (f(x + h) - f(x)) / h;
 }
