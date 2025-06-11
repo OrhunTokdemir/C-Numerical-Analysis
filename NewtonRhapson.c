@@ -8,7 +8,7 @@ double function(double x) {
     //e^-x -x = 0;
     return pow(E,-x)-x;
 }
-//turevi bulmak icib basit bir orta fark fonksiyonu kullanmaktayım. 3. parti bir kutuphane kullanmak yerine
+//turevi bulmak icin basit bir orta fark fonksiyonu kullanmaktayım. 3. parti bir kutuphane kullanmak yerine
 //kendi fonksiyonumu yazmayı tercih ettim. turev hesabının kesinliği bu durmda fonksiyonun yaklasım dogrulugunu azaltmakta
 double setX1 (double (*f)(double), double x0, double h) {
     return x0 - f(x0) / centralDifference(f, x0, h);

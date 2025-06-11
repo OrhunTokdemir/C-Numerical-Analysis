@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include<stdlib.h>
+#define _USE_MATH_DEFINES
 #include <math.h>
 #define E 2.71828
 #define PI_ 3.14159
