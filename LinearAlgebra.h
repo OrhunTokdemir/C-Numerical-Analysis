@@ -2,6 +2,7 @@
 #include<math.h>
 #include<stdlib.h>
 #include<stdio.h>
+#include<string.h>
 
  
 
@@ -80,13 +81,14 @@ float* fmatrisCarpim(float *ptr0, float *ptr1, int row0, int col0, int row1, int
     return ptrprod;
 }
 
+
 float* LuFactorization(float *A, int n){
     float *L=(float *)calloc(n * n, sizeof(float));
     float *U=(float *)calloc(n * n, sizeof(float));
     for(int i=0;i<n;i++){
         L[i*n+i] = 1.0f; 
     }
-    memcopy(U, A, n * n * sizeof(float));
+    memcpy(U, A, n * n * sizeof(float));
     for(int i=0;i<n;i++){
         for(int j=i+1;j<n;j++){
             float lji= U[j*n+i] / U[i*n+i];
@@ -97,5 +99,5 @@ float* LuFactorization(float *A, int n){
 
         }
     }
-
+    return L;
 }
