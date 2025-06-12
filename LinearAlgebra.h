@@ -33,6 +33,19 @@ float* fmatrisToplam(float *ptr0,float* ptr1, int row0, int col0, int row1, int 
     }
     return ptrsum;
 }
+float* fmatrisCikarma(float *ptr0,float* ptr1, int row0, int col0, int row1, int col1){
+    if(col0!=col1 || row0!=row1){
+        fprintf(stderr, "Error: Matrices must have the same dimensions for addition.\n");
+        return NULL; // Matrices must have the same dimensions
+    }
+    float *ptrsum = (float *)malloc(row0 * col0 * sizeof(float));
+    for(int i=0; i<row0; i++){
+        for(int j=0; j<col0; j++){
+            ptrsum[i*col0+j] = ptr0[i*col0+j]-ptr1[i*col1+j];
+        }
+    }
+    return ptrsum;
+}
 int* matrisCarpim(int *ptr0, int *ptr1, int row0, int col0, int row1, int col1) {
     if (col0 != row1) {
         fprintf(stderr, "Error: Number of columns in first matrix must equal number of rows in second matrix for multiplication.\n");
@@ -65,4 +78,24 @@ float* fmatrisCarpim(float *ptr0, float *ptr1, int row0, int col0, int row1, int
         }
     }
     return ptrprod;
+}
+
+float* LuFactorization(float *A, int n){
+    float *L=(float *)calloc(n * n, sizeof(float));
+    float *U=(float *)calloc(n * n, sizeof(float));
+    for(int i=0;i<n;i++){
+        L[i*n+i] = 1.0f; 
+    }
+    memcopy(U, A, n * n * sizeof(float));
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            float lji= U[j*n+i] / U[i*n+i];
+            L[j*n+i] = U[j*n+i] / U[i*n+i]; 
+            for(int k=i;k<n;k++){
+                U[j*n+k] -= lji * U[i*n+k];
+            }
+
+        }
+    }
+
 }
