@@ -4,10 +4,6 @@
 #include<stdio.h>
 #include<string.h>
 
- 
-
-
-
 int * matrisToplam(int*ptr0 ,int* ptr1, int row0, int col0, int row1, int col1){
     if(col0!=col1 || row0!=row1){
         fprintf(stderr, "Error: Matrices must have the same dimensions for addition.\n");

@@ -1,3 +1,5 @@
+#Compiler related files
+.vscode/
 # Prerequisites
 *.d
 
