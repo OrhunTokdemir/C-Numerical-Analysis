@@ -80,7 +80,13 @@ float* fmatrisCarpim(float *ptr0, float *ptr1, int row0, int col0, int row1, int
     }
     return ptrprod;
 }
-
+//psuedo code for LU factorization
+//1.	Initialize  L  to an identity matrix,  I  of dimension  n×n  and  U=A.
+//2.	For  i=1,…,n  do Step 3
+//3.  For  j=i+1,…,n do Steps 4-5
+//4.	Set  lji=uji/uii 
+//5.	Perform  Uj=(Uj−ljiUi)(where  Ui,Uj represent the  i and  j rows of the matrix  U, respectively)
+// I got this psuedo code from "https://johnfoster.pge.utexas.edu/numerical-methods-book/LinearAlgebra_LU.html#Psuedocode-for-a-simple-$\mathbf{LU}$-factorization"
 
 float* LuFactorization(float *A, int n){
     float *L=(float *)calloc(n * n, sizeof(float));
@@ -99,5 +105,6 @@ float* LuFactorization(float *A, int n){
 
         }
     }
+    
     return L;
 }
