@@ -29,7 +29,7 @@ int bisectionMethod(double a,double b, double hata){
         printf("Mutlak hata saglandi.\n");
         return 0;
     }
-    double pn=(a+b)/2;
+    double pn=(a+b)/2; 
     if(checkRoot(a,pn)){
         goster(a,b,f(pn),adim,pn);
         b=pn;
@@ -39,6 +39,7 @@ int bisectionMethod(double a,double b, double hata){
         goster(a,b,f(pn),adim,pn);
         a=pn;
         bisectionMethod(a,b,hata);
+        
     } else {
         goster(a,b,f(pn),adim,pn);
         printf("Kok bulunamadi.\n");
