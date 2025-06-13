@@ -83,10 +83,15 @@ float* fmatrisCarpim(float *ptr0, float *ptr1, int row0, int col0, int row1, int
 //4.	Set  lji=uji/uii 
 //5.	Perform  Uj=(Uj−ljiUi)(where  Ui,Uj represent the  i and  j rows of the matrix  U, respectively)
 // I got this psuedo code from "https://johnfoster.pge.utexas.edu/numerical-methods-book/LinearAlgebra_LU.html#Psuedocode-for-a-simple-$\mathbf{LU}$-factorization"
+struct LU {
+    float *L;
+    float *U;
+};
 
-float* LuFactorization(float *A, int n){
+struct LU* LuFactorization(float *A, int n){
     float *L=(float *)calloc(n * n, sizeof(float));
     float *U=(float *)calloc(n * n, sizeof(float));
+    struct LU* lu=(struct LU*)malloc(sizeof(struct LU));
     for(int i=0;i<n;i++){
         L[i*n+i] = 1.0f; 
     }
@@ -101,6 +106,8 @@ float* LuFactorization(float *A, int n){
 
         }
     }
+    lu->L = L;
+    lu->U = U;
     
-    return L;
+    return lu;
 }
