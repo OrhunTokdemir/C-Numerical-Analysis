@@ -5,19 +5,33 @@
 
 int main(){
     float a[3][3] = {{1,2,3},
-                    {4,5,6},
-                    {7,8,9}};
-    struct LU* lu=LuFactorization((float*)a, 3);
+                    {2,5,2},
+                    {3,1,5}};
+    struct LU* lu=LuDecomposition((float*)a, 3);
     float* ptr=lu->L;
     float* ptr1=lu->U;
     for(int i=0; i<3; i++){
+        printf("|");
         for(int j=0; j<3; j++){
-            printf("%f ", ptr[i*3+j]);
+            printf("%5.2f ", ptr[i*3+j]);
         }
-        printf("\n");
+        printf("|\n");
     }
-    free(ptr);
-    free(ptr1);
-    free(lu);  
-    return 0;
-}
+    printf("\n");
+    for(int i=0; i<3; i++){
+        printf("|");
+        for(int j=0; j<3; j++){
+            printf("%5.2f ", ptr1[i*3+j]);
+        }
+        printf("|\n");
+    }
+    float* x=(float*)malloc(3 * sizeof(float));
+    printf("\n");
+    SolutionByLu(lu, (float[]){14,18,20}, x);
+
+    for(int i=0; i<3; i++){
+        printf("%5.2f ", x[i]);
+    }
+
+    
+} 

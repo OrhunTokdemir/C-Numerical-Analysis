@@ -86,9 +86,10 @@ float* fmatrisCarpim(float *ptr0, float *ptr1, int row0, int col0, int row1, int
 struct LU {
     float *L;
     float *U;
+    int n;
 };
 
-struct LU* LuFactorization(float *A, int n){
+struct LU* LuDecomposition(float *A, int n){
     float *L=(float *)calloc(n * n, sizeof(float));
     float *U=(float *)calloc(n * n, sizeof(float));
     struct LU* lu=(struct LU*)malloc(sizeof(struct LU));
@@ -106,8 +107,45 @@ struct LU* LuFactorization(float *A, int n){
 
         }
     }
+    lu->n = n;
     lu->L = L;
     lu->U = U;
     
     return lu;
 }
+void freeLU(struct LU* lu) {
+    if (lu) {
+        free(lu->L);
+        free(lu->U);
+        free(lu);
+    }
+}
+
+void SolutionByLu(struct LU* lu, float* b, float* x) {
+    int n = lu->n;
+    float* L = lu->L;
+    float* U = lu->U;
+    float* y = (float*)malloc(n * sizeof(float));
+    
+    // Forward substitution to solve Ly = b
+    y[0] = b[0] / L[0];
+    for(int i=1; i<n; i++){
+        y[i] = b[i];
+        for(int j=0; j<i; j++){
+            y[i] -= L[i*n+j] * y[j];
+        }
+        y[i] /= L[i*n+i];
+    }
+    // Backward substitution to solve Ux = y
+    x[n-1] = y[n-1] / U[(n-1)*n + (n-1)];
+    for(int i=n-2;i>=0;i--){
+        x[i] = y[i];
+        for(int j=i+1;j<n;j++){
+            x[i] -= (U[i*n+j] * x[j]) / U[i*n+i];
+        }
+    }
+    free(y);
+
+    freeLU(lu);
+}
+
