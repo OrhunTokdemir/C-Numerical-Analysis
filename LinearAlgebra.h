@@ -17,6 +17,7 @@ int * matrisToplam(int*ptr0 ,int* ptr1, int row0, int col0, int row1, int col1){
     }
     return ptrsum;
 }
+
 float* fmatrisToplam(float *ptr0,float* ptr1, int row0, int col0, int row1, int col1){
     if(col0!=col1 || row0!=row1){
         fprintf(stderr, "Error: Matrices must have the same dimensions for addition.\n");
@@ -30,6 +31,7 @@ float* fmatrisToplam(float *ptr0,float* ptr1, int row0, int col0, int row1, int 
     }
     return ptrsum;
 }
+
 float* fmatrisCikarma(float *ptr0,float* ptr1, int row0, int col0, int row1, int col1){
     if(col0!=col1 || row0!=row1){
         fprintf(stderr, "Error: Matrices must have the same dimensions for addition.\n");
@@ -43,6 +45,7 @@ float* fmatrisCikarma(float *ptr0,float* ptr1, int row0, int col0, int row1, int
     }
     return ptrsum;
 }
+
 int* matrisCarpim(int *ptr0, int *ptr1, int row0, int col0, int row1, int col1) {
     if (col0 != row1) {
         fprintf(stderr, "Error: Number of columns in first matrix must equal number of rows in second matrix for multiplication.\n");
@@ -59,6 +62,7 @@ int* matrisCarpim(int *ptr0, int *ptr1, int row0, int col0, int row1, int col1) 
     }
     return ptrprod;
 }
+
 float* fmatrisCarpim(float *ptr0, float *ptr1, int row0, int col0, int row1, int col1) {
     if (col0 != row1) {
         fprintf(stderr, "Error: Number of columns in first matrix must equal number of rows in second matrix for multiplication.\n");
