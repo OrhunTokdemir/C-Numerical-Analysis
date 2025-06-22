@@ -98,10 +98,11 @@ int main(){
         float* xresult=GaussSiedel((float*)A, (float*)ba, (float*)xk, 3, 10, 0.01f);
         for(int i=0;i<3;i++){
             printf("x[%d]=%f\n",i+1,xresult[i]);
-            free(xresult);
+            
         }
     }
     
-    free(A, ba, xk);//dont forget to free allocated memory.
+    
+    //dont forget to free allocated memory.
     return 0;
 }
