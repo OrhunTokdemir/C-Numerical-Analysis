@@ -1,9 +1,6 @@
 #ifndef NEWTON_RAPHSON_H
 #define NEWTON_RAPHSON_H
 
-// Function declarations for Newton-Raphson method
-double function(double x);
-
 /**
  * @brief Set the next approximation using the center difference formula
  * @param f: function pointer to evaluate

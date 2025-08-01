@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include "common.h"
-#include "bisection_method.h"
+#include "./include/common.h"
+#include "./include/bisection_method.h"
 
 int main(){
     

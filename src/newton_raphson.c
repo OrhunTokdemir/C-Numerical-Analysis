@@ -1,14 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-#include "common.h"
-#include "derivative.h"
-#include "newton_raphson.h"
-
-double function(double x) {
-    //e^-x -x = 0;
-    return pow(E, -x) - x;
-}
+#include "../include/common.h"
+#include "../include/derivative.h"
+#include "../include/newton_raphson.h"
 
 //turevi bulmak icin basit bir orta fark fonksiyonu kullanmaktayım. 3. parti bir kutuphane kullanmak yerine
 //kendi fonksiyonumu yazmayı tercih ettim. turev hesabının kesinliği bu durmda fonksiyonun yaklasım dogrulugunu azaltmakta
@@ -31,3 +26,4 @@ int NewtonRaphson(double (*f)(double), double x0, double h, double hata, int max
     printf("kok bulundu:%0.12lf\n", x1);
     return 0;
 }
+
