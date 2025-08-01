@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include<stdlib.h>
-#define _USE_MATH_DEFINES
-#include <math.h>
-#define E 2.71828
-#define PI_ 3.14159
+#include "../include/common.h"
+#include <stdio.h>   // For printf()
+#include <math.h>    // For pow(), fabs()
+#include <stdlib.h>  // For general utilities (if needed)
+
 //yaklasim yapılacak fonksiyon kod icerinde burda belirleniyor.
 double f(double x) {
     return x-pow(2,-x); 
