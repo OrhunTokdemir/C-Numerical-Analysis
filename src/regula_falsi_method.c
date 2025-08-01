@@ -6,7 +6,6 @@
 //this is the recursive implementations of regula falsi method
 //i just wanted to make it in recursive.
 //i will probably make a version of this using while loops later.
-int* adim = NULL;
 
 int regulaFalsiMethod(double a, double b, double hata) {
     if (!adim) {

@@ -4,6 +4,9 @@
 #define E 2.71828
 #define PI_ 3.14159
 
+// Global step counter for all methods
+extern int* adim;
+
 // Function prototype for the default function
 double f(double x);
 

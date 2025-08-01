@@ -3,8 +3,6 @@
 #include "common.h"
 #include "bisection_method.h"
 
-int* adim = NULL;
-
 int bisectionMethod(double a, double b, double hata) {
     if (!adim) {
         adim = (int*)malloc(sizeof(int));

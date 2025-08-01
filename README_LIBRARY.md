@@ -52,37 +52,44 @@ C-Numerical-Analysis/
 ## Building the Library
 
 ### Prerequisites
-- GCC compiler
-- Make utility
+- CMake 3.10 or higher
+- GCC compiler (MinGW on Windows)
 - Standard C libraries (math.h, stdio.h, stdlib.h)
 
-### Compilation
+### Compilation (CMake - Recommended)
 
-1. **Build everything** (library + examples):
+1. **Build everything** (library + examples + executables):
+   ```bash
+   .\build.bat
+   ```
+   
+   Or manually:
+   ```bash
+   mkdir build && cd build
+   cmake -G "MinGW Makefiles" -DCMAKE_C_COMPILER=gcc ..
+   cmake --build . --config Release
+   ```
+
+2. **Clean build files**:
+   ```bash
+   .\clean.bat
+   ```
+
+3. **Build outputs**:
+   - Library: `build/src/libnumerical_analysis.a`
+   - Executables: `build/bin/`
+   - Examples: `build/examples/`
+
+### Alternative: Traditional Make (Legacy)
+1. **Build everything**:
    ```bash
    make all
    ```
 
-2. **Build library only**:
-   ```bash
-   make library
-   ```
-
-3. **Build examples only**:
-   ```bash
-   make examples
-   ```
-
-4. **Clean build files**:
+2. **Clean**:
    ```bash
    make clean
    ```
-
-### Windows (MinGW)
-If using MinGW on Windows, use:
-```cmd
-mingw32-make all
-```
 
 ## Usage
 
@@ -95,7 +102,11 @@ mingw32-make all
 
 2. Compile your program with the library:
    ```bash
-   gcc -Iinclude your_program.c -Llib -lnumerical_analysis -lm -o your_program
+   # Using CMake-built library
+   gcc -I./include your_program.c -L./build/src -lnumerical_analysis -lm -o your_program
+   
+   # Or using traditional make-built library
+   gcc -I./include your_program.c -L./lib -lnumerical_analysis -lm -o your_program
    ```
 
 ### Example: Finding a Root

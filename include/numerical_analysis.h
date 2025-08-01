@@ -11,6 +11,8 @@
 #include "regula_falsi_method.h"
 #include "linear_algebra.h"
 #include "gauss_seidel.h"
+// Add new method headers here:
+// #include "new_method.h"
 
 // Library version
 #define NUMERICAL_ANALYSIS_VERSION_MAJOR 1

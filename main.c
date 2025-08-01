@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include "LinearAlgebra.h"
+#include "./include/linear_algebra.h"
 #include<string.h>
 
 int main(){
@@ -27,7 +27,7 @@ int main(){
     }
     float* x=(float*)malloc(3 * sizeof(float));
     printf("\n");
-    SolutionByLu(lu, (float[]){14,18,20}, x);
+    solutionByLu(lu, (float[]){14,18,20}, x);
 
     for(int i=0; i<3; i++){
         printf("%5.2f ", x[i]);

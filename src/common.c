@@ -3,6 +3,9 @@
 #include <math.h>    // For pow(), fabs()
 #include <stdlib.h>  // For general utilities (if needed)
 
+// Global step counter for all methods
+int* adim = NULL;
+
 //yaklasim yapılacak fonksiyon kod icerinde burda belirleniyor.
 double f(double x) {
     return x-pow(2,-x); 
