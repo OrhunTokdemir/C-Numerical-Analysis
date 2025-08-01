@@ -8,6 +8,7 @@
 #include "bisection_method.h"
 #include "newton_raphson.h"
 #include "secant_method.h"
+#include "regula_falsi_method.h"
 #include "linear_algebra.h"
 #include "gauss_seidel.h"
 
