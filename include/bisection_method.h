@@ -11,7 +11,4 @@
  */
 int bisectionMethod(double a, double b, double hata);
 
-// Global step counter for bisection method
-extern int* adim;
-
 #endif // BISECTION_METHOD_H

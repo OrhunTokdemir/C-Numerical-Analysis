@@ -33,9 +33,10 @@ int bagilHata(double p1, double p0, double hata);
  * @brief Check if there is a root in the interval [a, b]
  * @param a: lower bound
  * @param b: upper bound
+ * @param f: function pointer to evaluate
  * @return: 1 if there is a root, 0 otherwise
  */
-int checkRoot(double a, double b);
+int checkRoot(double a, double b, double (*f)(double));
 
 // Display functions
 

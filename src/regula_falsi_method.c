@@ -7,7 +7,7 @@
 //i just wanted to make it in recursive.
 //i will probably make a version of this using while loops later.
 
-int regulaFalsiMethod(double a, double b, double hata) {
+int regulaFalsiMethod(double a, double b, double (*f)(double),double hata) {
     if (!adim) {
         adim = (int*)malloc(sizeof(int));
         *adim = 1; // Initialize step counter
@@ -29,13 +29,13 @@ int regulaFalsiMethod(double a, double b, double hata) {
     }
     goster(a, b, f(pn), adim, pn);
 
-    if (checkRoot(a, pn)) {
+    if (checkRoot(a, pn, f)) {
         b = pn;
-        regulaFalsiMethod(a, b, hata);
+        regulaFalsiMethod(a, b, f, hata);
     }
-    else if (checkRoot(pn, b)) {
+    else if (checkRoot(pn, b, f)) {
         a = pn;
-        regulaFalsiMethod(a, b, hata);
+        regulaFalsiMethod(a, b, f,hata);
     }
     else {
         printf("Kok bulunamadi.\n");

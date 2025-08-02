@@ -26,7 +26,7 @@ int bagilHata(double p1,double p0,double hata) {
         return 0;
     }
 }
-int checkRoot(double a, double b) {
+int checkRoot(double a, double b, double (*f)(double)) {
     if (f(a) * f(b) < 0) {
         return 1; // There is a root in the interval [a, b]
     } else {
