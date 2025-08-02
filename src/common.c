@@ -1,9 +1,11 @@
-#include <stdio.h>
-#include<stdlib.h>
-#define _USE_MATH_DEFINES
-#include <math.h>
-#define E 2.71828
-#define PI_ 3.14159
+#include "../include/common.h"
+#include <stdio.h>   // For printf()
+#include <math.h>    // For pow(), fabs()
+#include <stdlib.h>  // For general utilities (if needed)
+
+// Global step counter for all methods
+int* adim = NULL;
+
 //yaklasim yapılacak fonksiyon kod icerinde burda belirleniyor.
 double f(double x) {
     return x-pow(2,-x); 
@@ -24,7 +26,7 @@ int bagilHata(double p1,double p0,double hata) {
         return 0;
     }
 }
-int checkRoot(double a, double b) {
+int checkRoot(double a, double b, double (*f)(double)) {
     if (f(a) * f(b) < 0) {
         return 1; // There is a root in the interval [a, b]
     } else {

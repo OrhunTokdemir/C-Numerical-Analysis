@@ -52,3 +52,81 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# CMake
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+cmake_install.cmake
+install_manifest.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# CMake-generated Makefiles (keep root Makefile for legacy builds)
+build/Makefile
+build/**/Makefile
+
+# Visual Studio / MSBuild files (when CMake generates VS projects)
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+x64/
+x86/
+Debug/
+Release/
+*.tlog
+
+# MinGW/MSYS2
+*.exe.stackdump
+
+# Build artifacts specific to this project
+bisectionMethod
+NewtonRhapson
+SekantMethod
+RegulaFalsiMethod
+GaussSiedel
+main
+LinearAlgebra
+library_demo
+example
+
+# Package files
+*.tar.gz
+*.zip
+
+# IDE files
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Temporary batch files (but keep build.bat and clean.bat)
+temp_*.bat
+tmp_*.bat
+*_temp.bat
+*_tmp.bat
