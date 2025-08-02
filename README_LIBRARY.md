@@ -122,13 +122,12 @@ double my_function(double x) {
 }
 
 int main() {
-    // Use bisection method
-    double root = bisectionMethod(my_function, 1.0, 2.0, 0.0001, 100);
+    // Use regula falsi method (updated API with function pointer)
+    regulaFalsiMethod(1.0, 2.0, my_function, 0.0001);
     
-    if (!isnan(root)) {
-        printf("Root found: %.6f\\n", root);
-    } else {
-        printf("Root not found\\n");
+    // Clean up global step counter
+    if(adim) {
+        free(adim);
     }
     
     return 0;
@@ -162,16 +161,26 @@ int main() {
 }
 ```
 
-## API Reference
+## Function Reference
 
 ### Root Finding Methods
 
+**Updated Function Signatures - Functions now accept function pointers:**
+
 ```c
-double bisectionMethod(double (*f)(double), double a, double b, double tolerance, int max_iter);
-double newtonRaphson(double (*f)(double), double x0, double h, double tolerance, int max_iter);
-double secantMethod(double (*f)(double), double x0, double x1, double tolerance, int max_iter);
-double regulaFalsiMethod(double (*f)(double), double a, double b, double tolerance, int max_iter);
+// Current API (requires function pointer)
+int regulaFalsiMethod(double a, double b, double (*f)(double), double hata);
+int bisectionMethod(double a, double b, double hata);  // Uses global f() function
+int newtonRaphsonMethod(double x0, double h, double tolerance, int max_iterations);
+int secantMethod(double (*f)(double), double x0, double x1, double tolerance, int max_iterations);
+
+// Utility functions
+int checkRoot(double a, double b, double (*f)(double));  // Updated to accept function pointer
+int mutlakHata(double p1, double p0, double hata);      // Absolute error check
+int bagilHata(double p1, double p0, double hata);       // Relative error check
 ```
+
+**Note**: The global step counter `adim` is managed internally. Remember to call `free(adim)` after use.
 
 ### Linear Algebra
 
