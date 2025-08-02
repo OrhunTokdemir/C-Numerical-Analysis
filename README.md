@@ -67,7 +67,6 @@ int main() {
 - `Makefile` - Traditional make configuration (backup)
 
 ## Recent Changes
-- **API Breaking Change**: Numerical methods now accept function pointers for flexibility
 - **Fixed**: Multiple definition errors with global variables
 - **Improved**: Better library modularity and documentation
 - **Reorganized**: Moved example files to `examples/` directory
