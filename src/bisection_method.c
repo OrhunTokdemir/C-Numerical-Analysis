@@ -3,12 +3,12 @@
 #include "common.h"
 #include "bisection_method.h"
 
-int bisectionMethod(double a, double b, double hata) {
+int bisectionMethod(double a, double b,double (*f)(double), double hata) {
     if (!adim) {
         adim = (int*)malloc(sizeof(int));
         *adim = 1; // Initialize step counter
     }
-    while (!checkRoot(a, b) && hata >= 0) {
+    while (!checkRoot(a, b, f) && hata >= 0) {
         printf("Verilen degerler arasinda kok yoktur. yeniden deger giriniz.\n");
         printf("a:");
         scanf("%lf", &a);
@@ -23,15 +23,15 @@ int bisectionMethod(double a, double b, double hata) {
         return 0;
     }
     double pn = (a + b) / 2;
-    if (checkRoot(a, pn)) {
+    if (checkRoot(a, pn, f)) {
         goster(a, b, f(pn), adim, pn);
         b = pn;
-        bisectionMethod(a, b, hata);
+        bisectionMethod(a, b, f, hata);
     }
-    else if (checkRoot(pn, b)) {
+    else if (checkRoot(pn, b, f)) {
         goster(a, b, f(pn), adim, pn);
         a = pn;
-        bisectionMethod(a, b, hata);
+        bisectionMethod(a, b, f, hata);
 
     }
     else {
